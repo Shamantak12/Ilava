@@ -2,19 +2,17 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <!-- Font-Awesome -->
+  <!-- Font-Awesome -->
+  <script src="https://kit.fontawesome.com/97132b68f0.js" crossorigin="anonymous"></script>
 
-    <script src="https://kit.fontawesome.com/97132b68f0.js" crossorigin="anonymous"></script>
-
-
-    <title>Ilava</title>
+  <title>Ilava</title>
 </head>
 <style>
 #ai-assistant { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
@@ -26,198 +24,237 @@
 .send-btn { background-color: #28a745; border: none; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
 .close-btn { background: none; border: none; color: white; cursor: pointer; float: right; }
 </style>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Ilava</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
-                </li>
+<body class="bg-gray-100">
+  <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a class="text-white text-lg font-bold" href="/">Ilava</a>
+      <button class="text-white md:hidden" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex space-x-4" id="navbar-menu">
+        <a class="text-gray-300 hover:text-white" href="/">Home</a>
+        <a class="text-gray-300 hover:text-white" href="/predict">Predict</a>
+        <a class="text-gray-300 hover:text-white" href="/dashboard">Dashboard</a>
+        <a class="text-gray-300 hover:text-white" href="/ilava-mitra">Ilava Mitra</a>
+        <a class="text-gray-300 hover:text-white" href="water_predict">Water Prediction</a>
+      </div>
+    </div>
+  </nav>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/predict">Predict</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
-                </li>
-
-
-            </ul>
+  <!--CAROUSEL-->
+  <div class="container mx-auto my-4">
+    <div class="relative w-full" id="carouselExampleCaptions"></div>
+      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="duration-700 ease-in-out" data-carousel-item>
+          <img src="/static/images/agricrop (1).png" class="block w-full" alt="...">
         </div>
-    </nav>
-
-    <!--CAROUSEL-->
-
-
-
-    <div class="container my-4">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/static/images/agricrop (1).png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="/static/images/3.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/static/images/5.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Crop Predictor</h5>
-                        <p><b>Predict the type of Crop to be grown</b>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="/static/images/3.jpg" class="block w-full" alt="...">
         </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="/static/images/5.jpg" class="block w-full" alt="...">
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
+            <h5 class="text-lg font-bold">Crop Predictor</h5>
+            <p class="text-sm"><b>Predict the type of Crop to be grown</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+        <button type="button" class="w-3 h-3 rounded-full bg-white" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-white" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-white" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+      </div>
+      <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+          <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+          <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- blog -->
+  <div class="container mx-auto my-2">
+    <!-- main -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-2">
+      <div class="my-4">
+        <h2 class="text-2xl font-bold">Overview<span class="text-muted"></span></h2>
+        <p class="text-lg">We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
+      </div>
+      <div class="my-4">
+        <img src="/static/images/core.jpg" class="d-block w-full" alt="...">
+      </div>
     </div>
 
-    <!-- blog -->
-    <div class="container my-2">
-        <!-- main -->
-
-        <div class="row featurette mx-2">
-            <div class="col-md-7 my-4">
-                <h2 class="featurette-heading">Overview<span class="text-muted"></span></h2>
-                <p class="lead">We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your
-                    crop and keep them healthy for a super awesome successful yield.</div>
-            <div class="col-md-5 my-4">
-                <img src="/static/images/core.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-
-
-        <div class="row featurette mx-2">
-            <div class="col-md-7 order-md-2 my-3">
-                <h2 class="featurette-heading">Parameters<span class="text-muted"></span></h2>
-                <p class="lead">
-                    Based on the requirements like which kind of climate is best suited for growing a particular crop,what will be the amount of water required for that crop to be grown,what will be the estimated rain for that crop,in what quantity must the chemicals of
-                    the soil must be in,such that the crop can sustain more life and has no harm from threats,all these parameters are taken into consideration for building the model,which takes up these parameters and predicts the best type of crop/fruit
-                    that the farmer must grow
-            </div>
-            <div class="col-md-5 order-md-1 my-5">
-                <img src="/static/images/s3.jpg" height="250" ,width="250" class="d-block w-100" alt="...">
-            </div>
-        </div>
- <!-- AI Assistant Chat -->
- <div id="ai-assistant">
-    <button id="chat-btn" class="chat-button">
-      <i class="fas fa-comments"></i> Ask Assistant
-    </button>
-    <div id="chat-box" class="chat-box">
-      <div class="chat-header">
-        <h6>AI Assistant</h6>
-        <button class="close-btn" onclick="closeChat()">X</button>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-2">
+      <div class="order-last md:order-first my-3">
+        <h2 class="text-2xl font-bold">Parameters<span class="text-muted"></span></h2>
+        <p class="text-lg">Based on the requirements like which kind of climate is best suited for growing a particular crop, what will be the amount of water required for that crop to be grown, what will be the estimated rain for that crop, in what quantity must the chemicals of the soil must be in, such that the crop can sustain more life and has no harm from threats, all these parameters are taken into consideration for building the model, which takes up these parameters and predicts the best type of crop/fruit that the farmer must grow.</p>
       </div>
-      <div class="chat-body">
-        <p>Hi, I'm your assistant. How can I help you?</p>
+      <div class="order-first md:order-last my-5">
+        <img src="/static/images/s3.jpg" class="d-block w-full" alt="...">
       </div>
-      <div class="chat-footer">
-        <input type="text" id="userInput" placeholder="Ask me something..." class="form-control">
-        <button class="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div id="ai-assistant">
+      <button id="chat-btn" class="chat-button">
+        <i class="fas fa-comments"></i> Ask Assistant
+      </button>
+      <div id="chat-box" class="chat-box">
+        <div class="chat-header">
+          <h6>AI Assistant</h6>
+          <button class="close-btn" onclick="closeChat()">X</button>
+        </div>
+        <div class="chat-body">
+          <p>Hi, I'm your assistant. How can I help you?</p>
+        </div>
+        <div class="chat-footer">
+          <input type="text" id="userInput" placeholder="Ask me something..." class="form-control">
+          <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <footer class="py-3 text-center text-white bg-gray-800">
+    <p>Copyright © 2024 | Ilava</p>
+    <p>SDM Institute Of Technology, Karnataka</p>
+    <p>Project Group: 5 | Semester: 7th | PROJ-CS701</p>
+    <p>Developed by,</p>
+    <p>shamantak nayak, prajwal achar, hishan m, kausthuba a m , akshaj</p>
+  </footer>
 
-    </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script>
+    const apiKey = 'AIzaSyCJAnctNslBas77t007bRN9MyV975u1ce4'; // Enter your apikey here
+    const predefinedResponses = {
+      "home": "You can navigate to the Home page by clicking <a href='/'>here</a>.",
+      "predict": "You can navigate to the Predict page by clicking <a href='/predict'>here</a>.",
+      "dashboard": "You can navigate to the Dashboard page by clicking <a href='/dashboard'>here</a>.",
+      "ilava mitra": "You can navigate to the Ilava Mitra page by clicking <a href='/ilava-mitra'>here</a>.",
+      "water prediction": "You can navigate to the Water Prediction page by clicking <a href='water_predict'>here</a>.",
+      "hi": "Hello! How can I assist you today?",
+      "hello": "Hi there! How can I help you?",
+      "how are you": "I'm an AI assistant, so I don't have feelings, but I'm here to help you!",
+      "thank you": "You're welcome! If you have any more questions, feel free to ask.",
+      "thanks": "You're welcome! If you have any more questions, feel free to ask.",
+      "contact": "You can contact us at contact@ilava.com.",
+      "about": "Ilava is a platform that uses state-of-the-art machine learning and deep learning technologies to assist farmers.",
+      "services": "We offer crop prediction, water prediction, and more. Check out our services page for more details.",
+      "help": "Sure, I'm here to help! What do you need assistance with?",
+      "support": "For support, you can reach out to our support team at support@ilava.com.",
+      "which type of crop can be grown in black sand": "Crops like cotton, sorghum, and sunflower are well-suited for black sand soil.",
+      "which type of crop can be grown in red sand": "Crops like peanuts, tomatoes, and watermelon are well-suited for red sand soil.",
+      "which type of crop can be grown in loamy sand": "Crops like wheat, sugarcane, and pulses are well-suited for loamy sand soil.",
+      "which type of crop can be grown in clayey sand": "Crops like rice, broccoli, and cabbage are well-suited for clayey sand soil.",
+      "how much fertilizer is needed": "The amount of fertilizer needed depends on the crop and soil conditions. It's best to conduct a soil test to determine the exact requirements.",
+      "what do you mean by Ilava Mitra": "Ilava Mitra is a virtual assistant that helps farmers with crop prediction, water prediction, and other agricultural tasks.",
+      "what is water prediction": "Water prediction is the process of forecasting water requirements for crops based on various factors such as soil type, weather conditions, and crop type.",
+      "what is your name": "My name is Ilava Mitra, your AI assistant.",
+      "who created you": "I was created by the team at Ilava to assist farmers with their agricultural needs.",
+      "i am sad": "I'm sorry to hear that. Is there anything I can do to help?",
+      "i am happy": "That's great to hear! How can I assist you further?",
+      "tell me a joke": "Why don't scientists trust atoms? Because they make up everything!",
+      "goodbye": "Goodbye! Have a great day!",
+      "good night": "Good night! Sleep well!",
+      "good morning": "Good morning! How can I assist you today?",
+      "good afternoon": "Good afternoon! How can I help you?",
+      "good evening": "Good evening! How can I assist you?",
+      "what is the weather like": "You can check the current weather conditions on your local weather website or app.",
+      "how to grow tomatoes": "Tomatoes need full sun, well-drained soil, and regular watering. Plant them after the last frost date in your area.",
+      "how to grow potatoes": "Potatoes grow best in cool weather. Plant seed potatoes in well-drained soil and cover them with mulch.",
+      "how to grow carrots": "Carrots need loose, sandy soil and full sun. Sow seeds directly in the garden and keep the soil moist.",
+      "how to grow lettuce": "Lettuce grows best in cool weather. Plant seeds in well-drained soil and keep them moist.",
+      "how to grow spinach": "Spinach prefers cool weather and well-drained soil. Sow seeds directly in the garden and keep the soil moist.",
+      "how to grow cucumbers": "Cucumbers need full sun and well-drained soil. Plant seeds after the last frost date and keep the soil moist.",
+      "how to grow peppers": "Peppers need full sun and well-drained soil. Plant seeds indoors and transplant them outside after the last frost date.",
+      "how to grow beans": "Beans need full sun and well-drained soil. Sow seeds directly in the garden after the last frost date.",
+      "how to grow corn": "Corn needs full sun and well-drained soil. Plant seeds directly in the garden after the last frost date.",
+      "how to grow strawberries": "Strawberries need full sun and well-drained soil. Plant them in early spring and keep the soil moist.",
+      "what is water required for rice cultivation": "Rice cultivation requires a significant amount of water, typically around 3,000 to 5,000 liters of water per kilogram of rice produced.",
+      "what is water required for wheat cultivation": "Wheat cultivation typically requires around 450 to 650 millimeters of water throughout its growing season.",
+      "what is water required for maize cultivation": "Maize cultivation generally requires about 500 to 800 millimeters of water during its growing season.",
+      "what is water required for sugarcane cultivation": "Sugarcane cultivation requires a significant amount of water, usually around 1,500 to 2,500 millimeters of water annually.",
+      "what is water required for cotton cultivation": "Cotton cultivation typically needs around 700 to 1,300 millimeters of water during its growing season.",
+      "what is water required for soybean cultivation": "Soybean cultivation generally requires about 450 to 700 millimeters of water throughout its growing season.",
+      "what is water required for barley cultivation": "Barley cultivation typically requires around 300 to 500 millimeters of water during its growing season.",
+      "what is water required for potato cultivation": "Potato cultivation generally needs about 500 to 700 millimeters of water throughout its growing season.",
+      "what is water required for tomato cultivation": "Tomato cultivation typically requires around 600 to 1,200 millimeters of water during its growing season.",
+      "what is water required for onion cultivation": "Onion cultivation generally needs about 350 to 550 millimeters of water throughout its growing season.",
+      "what is water required for carrot cultivation": "Carrot cultivation typically requires around 400 to 600 millimeters of water during its growing season.",
+      "which fertilizers can be used for tomatoes": "For tomatoes, use a balanced fertilizer like 10-10-10 or one with slightly higher phosphorus content like 5-10-5.",
+      "which fertilizers can be used for potatoes": "For potatoes, use a fertilizer high in potassium like 5-10-10 or 10-20-20.",
+      "which fertilizers can be used for carrots": "For carrots, use a low-nitrogen fertilizer like 0-10-10 or 5-15-15.",
+      "which fertilizers can be used for lettuce": "For lettuce, use a balanced fertilizer like 10-10-10 or one with higher nitrogen content like 20-10-10.",
+      "which fertilizers can be used for spinach": "For spinach, use a high-nitrogen fertilizer like 16-16-8 or 10-10-10.",
+      "which fertilizers can be used for cucumbers": "For cucumbers, use a balanced fertilizer like 10-10-10 or one with higher potassium content like 5-10-10.",
+      "which fertilizers can be used for peppers": "For peppers, use a balanced fertilizer like 10-10-10 or one with slightly higher phosphorus content like 5-10-5.",
+      "which fertilizers can be used for beans": "For beans, use a low-nitrogen fertilizer like 5-10-10 or 10-20-20.",
+      "which fertilizers can be used for corn": "For corn, use a high-nitrogen fertilizer like 16-16-8 or 20-10-10.",
+      "which fertilizers can be used for strawberries": "For strawberries, use a balanced fertilizer like 10-10-10 or one with higher potassium content like 5-10-10."
+    };
 
-    <footer class="py-3 text-center text-light bg-dark">
-        Copyright © 2022 | AgriCrop<br>
-        University of Engineering & Management, Kolkata<br>
-        Project Group: 30 | Semester: 7th | PROJ-CS701<br>
-        Developed by,<br>
-        Abhishek Sharma, Digbijoy Dasgupta, Ishita Pahari, Shreya Bose, Udayan Misra, Raktim Karmakar       
-    </footer>
+    function fetchMessages(userInput) {
+      const chatbox = document.querySelector('.chat-body');
 
+      // Check for predefined responses
+      for (const keyword in predefinedResponses) {
+      if (userInput.toLowerCase().includes(keyword)) {
+        chatbox.innerHTML += `<p>User: ${userInput}</p>`;
+        chatbox.innerHTML += `<p style="color: green;">Assistant: ${predefinedResponses[keyword]}</p>`;
+        return;
+      }
+      }
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
-</body>
-<script>
-    const apiKey = 'AIzaSyCJAnctNslBas77t007bRN9MyV975u1ce4' ;   // Enter your apikey here
-    const chatbox = document.getElementById("quote");
-    const authorN = document.getElementById("author");
+      let messages = [
+      {
+        "role": "user",
+        "content": userInput
+      }
+      ];
 
-let messages = [];
-
-function myFunction(){
-	const msg = "give me a quote related to agriculture and farming";
-    if (msg) {
-        messages.push({
-            "role": "user",
-            "content": msg
-        });
-        fetchMessages();
+      try {
+      var settings = {
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + apiKey,
+        method: "POST",
+        timeout: 0,
+        headers: {
+        Authorization: "Bearer " + apiKey,
+        "Content-Type": "application/json"
+        },
+        data: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: messages
+        })
+      };
+      $.ajax(settings).done(function(response) {
+        const message = response.choices[0].message;
+        chatbox.innerHTML += `<p>User: ${userInput}</p>`;
+        chatbox.innerHTML += `<p style="color: green;">Assistant: ${message.content}</p>`;
+      }).fail(function() {
+        chatbox.innerHTML += `<p>User: ${userInput}</p>`;
+        chatbox.innerHTML += `<p style="color: red;">Assistant: Sorry, I couldn't process your request.</p>`;
+      });
+      } catch (error) {
+      chatbox.innerHTML += `<p>User: ${userInput}</p>`;
+      chatbox.innerHTML += `<p style="color: red;">Assistant: Sorry, I couldn't process your request.</p>`;
+      }
     }
-};
-
-function fetchMessages() {
-    try {
-        var settings = {
-            url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCJAnctNslBas77t007bRN9MyV975u1ce4",
-            method: "POST",
-            timeout: 0,
-            headers: {
-                Authorization: "Bearer " + apiKey,
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: messages
-            })
-        };
-        $.ajax(settings).done(function(response) {
-			chatbox.innerHTML = '';  
-			authorN.innerHTML = ''; 
-
-			const message = response.choices[0].message;
-            messages.push({
-                "role": message.role,
-                "content": message.content
-            });					
-            Rquote=message.content;	
-
-			parts = Rquote.split(" - ")
-			QuoteR = parts[0]
-			authorName = parts[1]
-
-			chatbox.append(QuoteR);
-			authorN.append(authorName);
-			
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-			chatbox.innerHTML = '';  
-			let errorMessage = 'Farming looks mighty easy when your plow is a pencil, and youre a thousand miles from the corn field.';
-			chatbox.append(errorMessage);
-        });
-    } catch (error) {
-		chatbox.innerHTML = '';  
-		let errorMessage2 = 'Farming looks mighty easy when your plow is a pencil, and youre a thousand miles from the corn field.';
-		chatbox.append(errorMessage2);
-    }
-}
 
     document.getElementById('chat-btn').onclick = function() {
       document.getElementById('chat-box').style.display = 'block';
@@ -230,58 +267,40 @@ function fetchMessages() {
     function sendMessage() {
       let userInput = document.getElementById('userInput').value;
       if (userInput.trim()) {
-        document.querySelector('.chat-body').innerHTML += `<p>User: ${userInput}</p>`;
-        document.getElementById('userInput').value = '';
-        document.querySelector('.chat-body').innerHTML += `<p>Assistant: Processing your query...</p>`;
-        
-        // Call the API with the user input
-        fetchMessages(userInput);
+      document.querySelector('.chat-body').innerHTML += `<p>User: ${userInput}</p>`;
+      document.getElementById('userInput').value = '';
+      document.querySelector('.chat-body').innerHTML += `<p style="color: blue;">Assistant: Processing your query...</p>`;
+      
+      // Call the API with the user input
+      fetchMessages(userInput);
       }
     }
 
-    function fetchMessages(userInput) {
-      const apiKey = "AIzaSyCJAnctNslBas77t007bRN9MyV975u1ce4";   // Enter your apikey here
-      const chatbox = document.querySelector('.chat-body');
-
-      let messages = [
-        {
-          "role": "user",
-          "content": userInput
-        }
-      ];
-
-      try {
-        var settings = {
-          url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY",
-          method: "POST",
-          timeout: 0,
-          headers: {
-            Authorization: "Bearer " + apiKey,
-            "Content-Type": "application/json"
-          },
-          data: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: messages
-          })
-        };
-        $.ajax(settings).done(function(response) {
-          const message = response.choices[0].message;
-          chatbox.innerHTML += `<p>Assistant: ${message.content}</p>`;
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-          chatbox.innerHTML += `<p>Assistant: Sorry, I couldn't process your request.</p>`;
-        });
-      } catch (error) {
-        chatbox.innerHTML += `<p>Assistant: Sorry, I couldn't process your request.</p>`;
-      }
+    // Whisper integration
+    async function transcribeAudio() {
+      const { createModel } = await import('https://cdn.jsdelivr.net/npm/@openai/whisper@latest');
+      const model = await createModel('base');
+      const audio = document.querySelector('audio');
+      const result = await model.transcribe(audio);
+      document.getElementById('userInput').value = result.text;
     }
 
-    function myFunction() {
-      document.getElementById('quote').textContent = "Fetching a new quote...";
-      // Simulating the API call and setting a new quote
-      setTimeout(() => {
-        document.getElementById('quote').textContent = "“Agriculture is the most healthful, most useful, and most noble employment of man.”";
-        document.getElementById('author').textContent = "- George Washington";
-      }, 1000);
-    }
-</script>
+    document.getElementById('chat-btn').addEventListener('click', () => {
+      const audioInput = document.createElement('input');
+      audioInput.type = 'file';
+      audioInput.accept = 'audio/*';
+      audioInput.onchange = async (event) => {
+      const file = event.target.files[0];
+      const audio = document.createElement('audio');
+      audio.src = URL.createObjectURL(file);
+      audio.onloadedmetadata = async () => {
+        await transcribeAudio();
+        sendMessage();
+      };
+      };
+      audioInput.click();
+    });
+  </script>
+  </script>
+</body>
 </html>

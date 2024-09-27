@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Predict Water Consumption</title>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-white text-lg font-bold" href="/">Ilava</a>
+            <div class="space-x-4">
+                <a class="text-gray-300 hover:text-white" href="/">Home</a>
+                <a class="text-gray-300 hover:text-white" href="/predict">Predict</a>
+                <a class="text-gray-300 hover:text-white" href="/dashboard">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center">Predict Water Consumption</h1>
+        <form action="/water_result" method="POST" class="space-y-4">
+            <div>
+                <label for="district" class="block text-gray-700">District:</label>
+                <select id="district" name="district" required class="mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md p-2">
+                    <option value="Bangalore Urban">Bangalore Urban</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Tumkur">Tumkur</option>
+                    <option value="Belgaum">Belgaum</option>
+                    <option value="Gulbarga">Gulbarga</option>
+                    <option value="Hubli">Hubli</option>
+                    <option value="Mangalore">Mangalore</option>
+                    <option value="Bijapur">Bijapur</option>
+                    <option value="Raichur">Raichur</option>
+                    <option value="Shimoga">Shimoga</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="crop" class="block text-gray-700">Crop:</label>
+                <select id="crop" name="crop" required class="mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md p-2">
+                    <option value="maize">Maize</option>
+                    <option value="chickpea">Chickpea</option>
+                    <option value="kidneybeans">Kidney Beans</option>
+                    <option value="pigeonpeas">Pigeon Peas</option>
+                    <option value="mothbeans">Moth Beans</option>
+                    <option value="mungbean">Mung Bean</option>
+                    <option value="blackgram">Black Gram</option>
+                    <option value="lentil">Lentil</option>
+                    <option value="pomegranate">Pomegranate</option>
+                    <option value="banana">Banana</option>
+                    <option value="mango">Mango</option>
+                    <option value="chilli">Chilli</option>
+                    <option value="Onion">Onion</option>
+                    <option value="Pomegranate">Pomegranate</option>
+                    <option value="Oilseeds">Oilseeds</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Cumin">Cumin</option>
+                    <option value="Cotton">Cotton</option>
+                    <option value="Mango">Mango</option>
+                    <option value="Coriander">Coriander</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Mustard">Mustard</option>
+                    <option value="Fennel">Fennel</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="irrigation_method" class="block text-gray-700">Irrigation Method:</label>
+                <select id="irrigation_method" name="irrigation_method" required class="mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md p-2">
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="flood">Flood Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="canal">Canal Irrigation</option>
+                </select>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Predict Water Consumption" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
