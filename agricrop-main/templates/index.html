@@ -35,7 +35,7 @@
         <a class="text-gray-300 hover:text-white" href="/">Home</a>
         <a class="text-gray-300 hover:text-white" href="/predict">Predict</a>
         <a class="text-gray-300 hover:text-white" href="/dashboard">Dashboard</a>
-        <a class="text-gray-300 hover:text-white" href="/ilava-mitra">Ilava Mitra</a>
+        <a class="text-gray-300 hover:text-white" href="https://00b74307aa06171f9a.gradio.live">Ilava Mitra</a>
         <a class="text-gray-300 hover:text-white" href="water_predict">Water Prediction</a>
       </div>
     </div>
@@ -165,7 +165,7 @@
       "how much fertilizer is needed": "The amount of fertilizer needed depends on the crop and soil conditions. It's best to conduct a soil test to determine the exact requirements.",
       "what do you mean by Ilava Mitra": "Ilava Mitra is a virtual assistant that helps farmers with crop prediction, water prediction, and other agricultural tasks.",
       "what is water prediction": "Water prediction is the process of forecasting water requirements for crops based on various factors such as soil type, weather conditions, and crop type.",
-      "what is your name": "My name is Ilava Mitra, your AI assistant.",
+      "what is your name": "My name is Ilava's, your AI assistant.",
       "who created you": "I was created by the team at Ilava to assist farmers with their agricultural needs.",
       "i am sad": "I'm sorry to hear that. Is there anything I can do to help?",
       "i am happy": "That's great to hear! How can I assist you further?",
@@ -208,40 +208,38 @@
       "which fertilizers can be used for corn": "For corn, use a high-nitrogen fertilizer like 16-16-8 or 20-10-10.",
       "which fertilizers can be used for strawberries": "For strawberries, use a balanced fertilizer like 10-10-10 or one with higher potassium content like 5-10-10."
     };
-
     function fetchMessages(userInput) {
       const chatbox = document.querySelector('.chat-body');
 
       // Check for predefined responses
       for (const keyword in predefinedResponses) {
-      if (userInput.toLowerCase().includes(keyword)) {
-        chatbox.innerHTML += `<p>User: ${userInput}</p>`;
-        chatbox.innerHTML += `<p style="color: green;">Assistant: ${predefinedResponses[keyword]}</p>`;
-        return;
-      }
+        if (userInput.toLowerCase().includes(keyword)) {
+          chatbox.innerHTML += `<p>User: ${userInput}</p>`;
+          chatbox.innerHTML += `<p style="color: green;">Assistant: ${predefinedResponses[keyword]}</p>`;
+          return;
+        }
       }
 
       let messages = [
-      {
-        "role": "user",
-        "content": userInput
-      }
+        {
+          "role": "user",
+          "content": userInput
+        }
       ];
 
-      try {
       var settings = {
         url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + apiKey,
         method: "POST",
-        timeout: 0,
         headers: {
-        Authorization: "Bearer " + apiKey,
-        "Content-Type": "application/json"
+          Authorization: "Bearer " + apiKey,
+          "Content-Type": "application/json"
         },
         data: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: messages
+          model: "gpt-3.5-turbo",
+          messages: messages
         })
       };
+
       $.ajax(settings).done(function(response) {
         const message = response.choices[0].message;
         chatbox.innerHTML += `<p>User: ${userInput}</p>`;
@@ -250,10 +248,6 @@
         chatbox.innerHTML += `<p>User: ${userInput}</p>`;
         chatbox.innerHTML += `<p style="color: red;">Assistant: Sorry, I couldn't process your request.</p>`;
       });
-      } catch (error) {
-      chatbox.innerHTML += `<p>User: ${userInput}</p>`;
-      chatbox.innerHTML += `<p style="color: red;">Assistant: Sorry, I couldn't process your request.</p>`;
-      }
     }
 
     document.getElementById('chat-btn').onclick = function() {
@@ -267,39 +261,14 @@
     function sendMessage() {
       let userInput = document.getElementById('userInput').value;
       if (userInput.trim()) {
-      document.querySelector('.chat-body').innerHTML += `<p>User: ${userInput}</p>`;
-      document.getElementById('userInput').value = '';
-      document.querySelector('.chat-body').innerHTML += `<p style="color: blue;">Assistant: Processing your query...</p>`;
-      
-      // Call the API with the user input
-      fetchMessages(userInput);
+        document.querySelector('.chat-body').innerHTML += `<p>User: ${userInput}</p>`;
+        document.getElementById('userInput').value = '';
+        document.querySelector('.chat-body').innerHTML += `<p style="color: blue;">Assistant: Processing your query...</p>`;
+        
+        // Call the API with the user input
+        fetchMessages(userInput);
       }
     }
-
-    // Whisper integration
-    async function transcribeAudio() {
-      const { createModel } = await import('https://cdn.jsdelivr.net/npm/@openai/whisper@latest');
-      const model = await createModel('base');
-      const audio = document.querySelector('audio');
-      const result = await model.transcribe(audio);
-      document.getElementById('userInput').value = result.text;
-    }
-
-    document.getElementById('chat-btn').addEventListener('click', () => {
-      const audioInput = document.createElement('input');
-      audioInput.type = 'file';
-      audioInput.accept = 'audio/*';
-      audioInput.onchange = async (event) => {
-      const file = event.target.files[0];
-      const audio = document.createElement('audio');
-      audio.src = URL.createObjectURL(file);
-      audio.onloadedmetadata = async () => {
-        await transcribeAudio();
-        sendMessage();
-      };
-      };
-      audioInput.click();
-    });
   </script>
   </script>
 </body>
