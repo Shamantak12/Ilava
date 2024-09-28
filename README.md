@@ -43,5 +43,5 @@ Water Consumption:
 - [Disease detection dataset](https://www.kaggle.com/vipoooool/new-plant-diseases-dataset)
 
 ## How to use🍃
-Crop Recommendation system (agricrop)==> For this go to the Predict section and then enter the corresponding nutrient values of your soil, Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them.
+Crop Recommendation system (Ilava)==> For this go to the Predict section and then enter the corresponding nutrient values of your soil, Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them.
 the crop Recommender system will suggest which type of crop/fruit to grow and will also suggest the fertilizer which must be used in order to increase production.
