@@ -12,7 +12,7 @@
   <!-- Font-Awesome -->
   <script src="https://kit.fontawesome.com/97132b68f0.js" crossorigin="anonymous"></script>
 
-  <title>Jal Mitra</title>
+  <title>Ilava</title>
 </head>
 <style>
 #ai-assistant { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
@@ -27,16 +27,16 @@
 <body class="bg-gray-100">
   <nav class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <a class="text-white text-lg font-bold" href="/">Jal Mitra</a>
+      <a class="text-white text-lg font-bold" href="/">Ilava</a>
       <button class="text-white md:hidden" id="navbar-toggle">
         <i class="fas fa-bars"></i>
       </button>
       <div class="hidden md:flex space-x-4" id="navbar-menu">
         <a class="text-gray-300 hover:text-white" href="/">Home</a>
-        <a class="text-gray-300 hover:text-white" href="/predict">Geo-spatial</a>
+        <a class="text-gray-300 hover:text-white" href="/predict">Predict</a>
         <a class="text-gray-300 hover:text-white" href="/dashboard">Dashboard</a>
-        <a class="text-gray-300 hover:text-white" href="https://00b74307aa06171f9a.gradio.live">GIOS Monitor</a>
-        <a class="text-gray-300 hover:text-white" href="water_predict">Inventory Predict</a>
+        <a class="text-gray-300 hover:text-white" href="/ilava-mitra">Ilava Mitra</a>
+        <a class="text-gray-300 hover:text-white" href="water_predict">Water Prediction</a>
       </div>
     </div>
   </nav>
@@ -46,13 +46,13 @@
     <div class="relative w-full" id="carouselExampleCaptions"></div>
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <div class="duration-700 ease-in-out" data-carousel-item>
+          <img src="/static/images/agricrop (1).png" class="block w-full" alt="...">
+        </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="/static/images/3.jpg" class="block w-full" alt="...">
+        </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img src="/static/images/5.jpg" class="block w-full" alt="...">
-        </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/static/images/s4.jpg" class="block w-full" alt="...">
-        </div>
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/static/images/s3.jpg" class="block w-full" alt="...">
           <div class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
             <h5 class="text-lg font-bold">Crop Predictor</h5>
             <p class="text-sm"><b>Predict the type of Crop to be grown</b></p>
@@ -89,7 +89,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-2">
       <div class="my-4">
         <h2 class="text-2xl font-bold">Overview<span class="text-muted"></span></h2>
-        <p class="text-lg">We uses state-of-the-art machine learning and deep learning technologies to help you guide through the entire Inventory process. Make informed decisions to understand the demographics of your area, understand the factors that affect your Finance and maintain them in a efficient way.</p>
+        <p class="text-lg">We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
       </div>
       <div class="my-4">
         <img src="/static/images/core.jpg" class="d-block w-full" alt="...">
@@ -165,7 +165,7 @@
       "how much fertilizer is needed": "The amount of fertilizer needed depends on the crop and soil conditions. It's best to conduct a soil test to determine the exact requirements.",
       "what do you mean by Ilava Mitra": "Ilava Mitra is a virtual assistant that helps farmers with crop prediction, water prediction, and other agricultural tasks.",
       "what is water prediction": "Water prediction is the process of forecasting water requirements for crops based on various factors such as soil type, weather conditions, and crop type.",
-      "what is your name": "My name is Ilava's, your AI assistant.",
+      "what is your name": "My name is Ilava Mitra, your AI assistant.",
       "who created you": "I was created by the team at Ilava to assist farmers with their agricultural needs.",
       "i am sad": "I'm sorry to hear that. Is there anything I can do to help?",
       "i am happy": "That's great to hear! How can I assist you further?",
